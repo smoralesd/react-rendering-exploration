@@ -8,6 +8,8 @@ import { CurrentTimePC2FC } from "./components/pure-components-renders-fc/Curren
 import { MouseTrackerPC2FC } from "./components/pure-components-renders-fc/MouseTrackerPC2FC";
 import { CurrentTimePC } from "./components/pure-components/CurrentTimePC";
 import { MouseTrackerPC } from "./components/pure-components/MouseTrackerPC";
+import { CurrentTimeSU } from "./components/with-should-update/CurrentTimeSU";
+import { MouseTrackerSU } from "./components/with-should-update/MouseTrackerSU";
 
 type AppState = CurrentTimeProps & MouseTrackerProps;
 
@@ -51,6 +53,12 @@ export default class App extends React.Component<{}, AppState> {
         <h1>React.PureComponent, Passing only needed props</h1>
         <CurrentTimePC currentTime={this.state.currentTime} />
         <MouseTrackerPC mousePosition={this.state.mousePosition} />
+        <h1>React.Component with shouldComponentUpdate, Passing the whole state</h1>
+        <CurrentTimeSU {...this.state}/>
+        <MouseTrackerSU {...this.state} />
+        <h1>React.Component with shouldComponentUpdate, Passing only needed props</h1>
+        <CurrentTimeSU currentTime={this.state.currentTime}/>
+        <MouseTrackerSU mousePosition={this.state.mousePosition} />
       </div>
     );
   }
