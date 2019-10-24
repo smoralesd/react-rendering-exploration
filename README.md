@@ -37,3 +37,9 @@ yarn start
 - Enable "Highlight updates when components render"
 
 After following this instructions, **React Developer Tools** will start highlighting each element (on the DOM) that gets re-rendered. Remember that: `CurrentTime` gets updated every second so you should see all the **current time** being highlighted. Additionally, if you move the mouse over the page, the **mouse position** values should also be updated.
+
+## Reading list
+Here are some articles I found while working on this one-day project
+- [How to identify and resolve wasted renders in React](https://www.freecodecamp.org/news/how-to-identify-and-resolve-wasted-renders-in-react-cc4b1e910d10/)
+- [How Virtual-DOM and diffing works in React](https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e)
+- [A React Rendering Misconception](https://thoughtbot.com/blog/react-rendering-misconception)
