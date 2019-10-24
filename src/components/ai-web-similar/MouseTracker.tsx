@@ -1,5 +1,5 @@
 import React from "react";
-import { MouseTrackerProps } from "../types/MouseTrackerProps";
+import { MouseTrackerProps } from "../../types/MouseTrackerProps";
 
 export const MouseTrackerFC: React.FC<MouseTrackerProps> = ({
   mousePosition
