@@ -1,6 +1,9 @@
 .App {
   text-align: center;
   height: 100vh;
+
+  display: flex;
+  align-items: center;
 }
 
 .App-logo {
@@ -22,6 +25,10 @@
   color: #09d3ac;
 }
 
-div {
+.App div {
   margin: 20px
+}
+
+.App > div {
+  flex: 1;
 }

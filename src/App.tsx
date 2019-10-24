@@ -14,61 +14,67 @@ import { MouseTrackerSU } from "./components/with-should-update/MouseTrackerSU";
 type AppState = CurrentTimeProps & MouseTrackerProps;
 
 export default class App extends React.Component<{}, AppState> {
-  constructor(props: {}) {
-    super(props);
+    constructor(props: {}) {
+        super(props);
 
-    this.state = {
-      currentTime: new Date(),
-      mousePosition: {
-        x: 0,
-        y: 0
-      }
+        this.state = {
+            currentTime: new Date(),
+            mousePosition: {
+                x: 0,
+                y: 0
+            }
+        };
+    }
+
+    public componentDidMount(): void {
+        setInterval(() => {
+            this.setState({ currentTime: new Date() });
+        }, 1000);
+    }
+
+    public render() {
+        return (
+            <div className="App" onMouseMove={this.onMouseOver}>
+                <div className="left">
+                    <h1>Passing the whole state</h1>
+                    <h2>React.FC</h2>
+                    <CurrentTimeFC {...this.state} />
+                    <MouseTrackerFC {...this.state} />
+                    <h2>React.PureComponent renders FC</h2>
+                    <CurrentTimePC2FC {...this.state} />
+                    <MouseTrackerPC2FC {...this.state} />
+                    <h2>React.PureComponent</h2>
+                    <CurrentTimePC {...this.state} />
+                    <MouseTrackerPC {...this.state} />
+                    <h2>React.Component with shouldComponentUpdate</h2>
+                    <CurrentTimeSU {...this.state} />
+                    <MouseTrackerSU {...this.state} />
+                </div>
+                <div className="right">
+                    <h1>Passing only needed props</h1>
+                    <h2>React.FC</h2>
+                    <CurrentTimeFC currentTime={this.state.currentTime} />
+                    <MouseTrackerFC mousePosition={this.state.mousePosition} />
+                    <h2>React.PureComponent renders FC</h2>
+                    <CurrentTimePC2FC currentTime={this.state.currentTime} />
+                    <MouseTrackerPC2FC mousePosition={this.state.mousePosition} />
+                    <h2>React.PureComponent</h2>
+                    <CurrentTimePC currentTime={this.state.currentTime} />
+                    <MouseTrackerPC mousePosition={this.state.mousePosition} />
+                    <h2>React.Component with shouldComponentUpdate</h2>
+                    <CurrentTimeSU currentTime={this.state.currentTime} />
+                    <MouseTrackerSU mousePosition={this.state.mousePosition} />
+                </div>
+            </div>
+        );
+    }
+
+    private onMouseOver = (e: React.MouseEvent) => {
+        this.setState({
+            mousePosition: {
+                x: e.screenX,
+                y: e.screenY
+            }
+        });
     };
-  }
-
-  public componentDidMount(): void {
-    setInterval(() => {
-      this.setState({ currentTime: new Date() });
-    }, 1000);
-  }
-
-  public render() {
-    return (
-      <div className="App" onMouseMove={this.onMouseOver}>
-        <h1>React.FC, Passing the whole state</h1>
-        <CurrentTimeFC {...this.state} />
-        <MouseTrackerFC {...this.state} />
-        <h1>React.FC, Passing only needed props</h1>
-        <CurrentTimeFC currentTime={this.state.currentTime} />
-        <MouseTrackerFC mousePosition={this.state.mousePosition} />
-        <h1>React.PureComponent renders FC, Passing the whole state</h1>
-        <CurrentTimePC2FC {...this.state} />
-        <MouseTrackerPC2FC {...this.state} />
-        <h1>React.PureComponent renders FC, Passing only needed props</h1>
-        <CurrentTimePC2FC currentTime={this.state.currentTime} />
-        <MouseTrackerPC2FC mousePosition={this.state.mousePosition} />
-        <h1>React.PureComponent, Passing the whole state</h1>
-        <CurrentTimePC {...this.state} />
-        <MouseTrackerPC {...this.state} />
-        <h1>React.PureComponent, Passing only needed props</h1>
-        <CurrentTimePC currentTime={this.state.currentTime} />
-        <MouseTrackerPC mousePosition={this.state.mousePosition} />
-        <h1>React.Component with shouldComponentUpdate, Passing the whole state</h1>
-        <CurrentTimeSU {...this.state}/>
-        <MouseTrackerSU {...this.state} />
-        <h1>React.Component with shouldComponentUpdate, Passing only needed props</h1>
-        <CurrentTimeSU currentTime={this.state.currentTime}/>
-        <MouseTrackerSU mousePosition={this.state.mousePosition} />
-      </div>
-    );
-  }
-
-  private onMouseOver = (e: React.MouseEvent) => {
-    this.setState({
-      mousePosition: {
-        x: e.screenX,
-        y: e.screenY
-      }
-    });
-  };
 }
