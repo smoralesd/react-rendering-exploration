@@ -1,15 +1,11 @@
 import React from "react";
 import "./App.css";
-import { CurrentTimeFC, CurrentTimeProps } from "./ai-web-similar/CurrentTime";
-import {
-  MouseTrackerFC,
-  MouseTrackerProps
-} from "./ai-web-similar/MouseTracker";
-
-export type Point = {
-  x: number;
-  y: number;
-};
+import { CurrentTimeFC } from "./ai-web-similar/CurrentTime";
+import { MouseTrackerFC } from "./ai-web-similar/MouseTracker";
+import { CurrentTimeProps } from "./types/CurrentTimeProps";
+import { MouseTrackerProps } from "./types/MouseTrackerProps";
+import { CurrentTimePC } from "./pure-components-renders-fc/CurrentTimePC";
+import { MouseTrackerPC } from "./pure-components-renders-fc/MouseTrackerPC";
 
 type AppState = CurrentTimeProps & MouseTrackerProps;
 
@@ -36,11 +32,17 @@ export default class App extends React.Component<{}, AppState> {
     return (
       <div className="App" onMouseMove={this.onMouseOver}>
         <h1>React.FC, Passing the whole state</h1>
-          <CurrentTimeFC {...this.state} />
-          <MouseTrackerFC {...this.state} />
+        <CurrentTimeFC {...this.state} />
+        <MouseTrackerFC {...this.state} />
         <h1>React.FC, Passing only needed props</h1>
-          <CurrentTimeFC currentTime={this.state.currentTime} />
-          <MouseTrackerFC mousePosition={this.state.mousePosition} />
+        <CurrentTimeFC currentTime={this.state.currentTime} />
+        <MouseTrackerFC mousePosition={this.state.mousePosition} />
+        <h1>React.PureComponent, Passing the whole state</h1>
+        <CurrentTimePC {...this.state} />
+        <MouseTrackerPC {...this.state} />
+        <h1>React.PureComponent, Passing only needed props</h1>
+        <CurrentTimePC currentTime={this.state.currentTime} />
+        <MouseTrackerPC mousePosition={this.state.mousePosition} />
       </div>
     );
   }

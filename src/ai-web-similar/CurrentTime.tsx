@@ -1,8 +1,5 @@
 import React from "react";
-
-export type CurrentTimeProps = {
-  currentTime: Date;
-};
+import { CurrentTimeProps } from "../types/CurrentTimeProps";
 
 export const CurrentTimeFC: React.FC<CurrentTimeProps> = ({ currentTime }) => (
   <div>
