@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import { CurrentTimeFC } from "./components/ai-web-similar/CurrentTime";
-import { MouseTrackerFC } from "./components/ai-web-similar/MouseTracker";
+import { CurrentTimeFC } from "./components/ai-web-similar/CurrentTimeFC";
+import { MouseTrackerFC } from "./components/ai-web-similar/MouseTrackerFC";
 import { CurrentTimeProps } from "./types/CurrentTimeProps";
 import { MouseTrackerProps } from "./types/MouseTrackerProps";
 import { CurrentTimePC2FC } from "./components/pure-components-renders-fc/CurrentTimePC2FC";
