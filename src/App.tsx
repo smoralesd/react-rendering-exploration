@@ -36,12 +36,11 @@ export default class App extends React.Component<{}, AppState> {
     return (
       <div className="App" onMouseMove={this.onMouseOver}>
         <h1>React.FC, Passing the whole state</h1>
-        <span>
           <CurrentTimeFC {...this.state} />
-        </span>
-        <span>
           <MouseTrackerFC {...this.state} />
-        </span>
+        <h1>React.FC, Passing only needed props</h1>
+          <CurrentTimeFC currentTime={this.state.currentTime} />
+          <MouseTrackerFC mousePosition={this.state.mousePosition} />
       </div>
     );
   }
