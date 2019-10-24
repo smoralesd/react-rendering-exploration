@@ -6,7 +6,7 @@ export class CurrentTimePC extends React.PureComponent<CurrentTimeProps> {
   public render() {
     return (
       <div>
-        current time: <div>{this.props.currentTime.toLocaleString()}</div>
+        current time: <span>{this.props.currentTime.toLocaleString()}</span>
       </div>
     );
   }

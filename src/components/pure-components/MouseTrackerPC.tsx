@@ -6,9 +6,7 @@ export class MouseTrackerPC extends React.PureComponent<MouseTrackerProps> {
   public render() {
     return (
       <div>
-        Mouse position:
-        <div>x: {this.props.mousePosition.x}</div>
-        <div>y: {this.props.mousePosition.y}</div>
+        Mouse position: <span>x: {this.props.mousePosition.x}</span> <span>y: {this.props.mousePosition.y}</span>
       </div>
     );
   }

@@ -6,9 +6,7 @@ export const MouseTrackerFC: React.FC<MouseTrackerProps> = ({
 }) => {
   return (
     <div>
-      Mouse position:
-      <div>x: {mousePosition.x}</div>
-      <div>y: {mousePosition.y}</div>
+      Mouse position: <span>x: {mousePosition.x}</span> <span>y: {mousePosition.y}</span>
     </div>
   );
 };
