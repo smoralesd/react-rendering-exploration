@@ -23,3 +23,17 @@ Both components `CurrentTime` and `MouseTracker` are implemented in different wa
 **App** is the main component with the following responsibilities:
 - to update the `state` keeping track of the mouse and the current time.
 - to render the different implementations of `CurrentTime` and `MouseTracker`.
+
+## How to use this repo
+- install [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) on your browser
+- build and launch the local server by running
+```
+yarn start
+```
+- Navigate to http://localhost:3000/
+- Inspect the webpage (Ctrl + Shift + I or F12 works on chrome)
+- On the Dev Tools, open the "Components" tab (this is from **React Developer Tools**)
+- Open the Settings by clicking the gear icon
+- Enable "Highlight updates when components render"
+
+After following this instructions, **React Developer Tools** will start highlighting each element (on the DOM) that gets re-rendered. Remember that: `CurrentTime` gets updated every second so you should see all the **current time** being highlighted. Additionally, if you move the mouse over the page, the **mouse position** values should also be updated.
